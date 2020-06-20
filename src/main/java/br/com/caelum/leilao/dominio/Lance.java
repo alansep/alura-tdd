@@ -18,4 +18,11 @@ public class Lance {
 		return valor;
 	}
 
+	@Override
+	public String toString() {
+		return String.valueOf(valor);
+	}
+
+	
+	
 }
