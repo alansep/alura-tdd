@@ -72,5 +72,22 @@ public class LeilaoTest {
 		
 	}
 	
+	
+	@Test
+	public void deveDobrarUltimoLance() {
+		Leilao leilao = new Leilao("Macbook Pro 15");
+		Usuario steveJobs = new Usuario("Steve Jobs");
+		Usuario billGates = new Usuario("Bill Gates");
+		Usuario jeff = new Usuario("Jeff Bezos");
+
+		leilao.propoe(new Lance(steveJobs, 2000.0));
+		leilao.propoe(new Lance(billGates, 2000.0));
+
+		leilao.dobrarLanceDo(steveJobs);
+		
+		assertEquals(4000.0, leilao.ultimoLanceDo(steveJobs), 0.00001);
+		assertEquals(3, leilao.getLances().size(),0.00001);
+		assertEquals(null, leilao.ultimoLanceDo(jeff));
+	}
 
 }
