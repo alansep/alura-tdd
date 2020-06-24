@@ -6,8 +6,15 @@ public class Lance {
 	private double valor;
 
 	public Lance(Usuario usuario, double valor) {
+		validaValor(valor);
 		this.usuario = usuario;
 		this.valor = valor;
+	}
+
+	private void validaValor(double valor) {
+		if(valor <= 0) {
+			throw new RuntimeException("Valor deve ser maior que 0!");
+		}
 	}
 
 	public Usuario getUsuario() {
@@ -22,6 +29,39 @@ public class Lance {
 	public String toString() {
 		return String.valueOf(valor);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(valor);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Lance other = (Lance) obj;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		if (Double.doubleToLongBits(valor) != Double.doubleToLongBits(other.valor))
+			return false;
+		return true;
+	}
+	
+	
+	
 
 	
 	
