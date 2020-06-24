@@ -9,7 +9,7 @@ public class LanceTest {
 
 	@Test(expected = RuntimeException.class)
 	public void lanceDeveSerMaiorQueZeroTest() {
-		Lance lance = new Lance(new Usuario("Gabriel"), 0);
+		new Lance(new Usuario("Gabriel"), 0);
 	}
 	
 	

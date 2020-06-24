@@ -74,8 +74,8 @@ public class AvaliadorTest {
 		leiloeiro.avalia(leilao, Arrays.asList());
 
 		// parte 3: validacao
-		double maiorEsperado = 400;
-		double menorEsperado = 250;
+		//double maiorEsperado = 400;
+		//double menorEsperado = 250;
 
 		assertThat(leiloeiro.getMaiorLance(), equalTo(400.0));
 		assertThat(leiloeiro.getMenorLance(), equalTo(250.0));
